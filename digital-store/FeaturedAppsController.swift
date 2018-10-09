@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeaturedAppsController: UICollectionViewController {
+class FeaturedAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
 
@@ -32,6 +32,11 @@ class FeaturedAppsController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.width, height: 150)
     }
 
 }

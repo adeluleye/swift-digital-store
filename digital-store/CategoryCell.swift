@@ -55,6 +55,11 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         return CGSize(width: 100, height: frame.height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

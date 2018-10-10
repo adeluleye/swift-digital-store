@@ -19,6 +19,14 @@ class AppCell: UICollectionViewCell {
         return imageView
     }()
     
+    let nameLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.text = "Disney Build It: Frozen"
+        label.numberOfLines = 2
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -26,8 +34,12 @@ class AppCell: UICollectionViewCell {
     
     func setupViews() {
         addSubview(imageView)
+        addSubview(nameLabel)
         
-        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
+        imageView.setAnchor(width: frame.width, height: frame.width)
+        nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 40, width: frame.width)
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

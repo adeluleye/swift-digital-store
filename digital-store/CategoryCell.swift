@@ -17,6 +17,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
         cv.backgroundColor = .clear
         return cv
     }()

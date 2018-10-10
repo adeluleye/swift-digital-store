@@ -10,17 +10,28 @@ import UIKit
 
 class AppCell: UICollectionViewCell {
     
+    let imageView: UIImageView = {
+        let image = UIImage(named: "frozen")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setupViews() {
+        addSubview(imageView)
+        
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
     }
     
-    func setupViews() {
-        backgroundColor = .black
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

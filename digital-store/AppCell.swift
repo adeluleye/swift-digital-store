@@ -10,6 +10,20 @@ import UIKit
 
 class AppCell: UICollectionViewCell {
     
+    var app: App? {
+        didSet {
+            
+            guard let unwrappedImage = app?.imageName else { return }
+            guard let price = app?.price else { return }
+            guard let name = app?.name else { return }
+            
+            nameLabel.text = name
+            categoryLabel.text = app?.category
+            priceLabel.text = "$\(price)"
+            imageView.image = UIImage(named: unwrappedImage)
+        }
+    }
+    
     let imageView: UIImageView = {
         let image = UIImage(named: "frozen")
         let imageView = UIImageView(image: image)

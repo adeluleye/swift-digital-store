@@ -10,7 +10,7 @@ import UIKit
 
 class FeaturedAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId"
+    let cellId = "categoryCellId"
 
     override func viewDidLoad() {
         super.viewDidLoad()

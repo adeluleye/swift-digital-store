@@ -12,6 +12,13 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     
     private let cellId = "appCellId"
     
+    let nameLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.text = "Best New Apps"
+        return label
+    }()
+    
     let appsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 16
@@ -20,6 +27,12 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         cv.showsHorizontalScrollIndicator = false
         cv.backgroundColor = .clear
         return cv
+    }()
+    
+    let dividerLineView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -32,11 +45,17 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     func setupViews() {
         backgroundColor = .clear
         addSubview(appsCollectionView)
+        addSubview(dividerLineView)
+        addSubview(nameLabel)
         
         appsCollectionView.dataSource = self
         appsCollectionView.delegate = self
         
-        appsCollectionView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        nameLabel.setAnchor(top: topAnchor, topPad: 5, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: rightAnchor, rightPad: 0, height: 30, width: 0)
+        
+        appsCollectionView.setAnchor(top: topAnchor, topPad: 40, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        
+        dividerLineView.setAnchor(top: appsCollectionView.bottomAnchor, topPad: 0, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: rightAnchor, rightPad: 0, height: 0.5, width: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,7 +71,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 100, height: frame.height)
+        return CGSize(width: 100, height: frame.height - 40)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

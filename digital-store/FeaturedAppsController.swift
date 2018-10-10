@@ -19,6 +19,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         collectionView.backgroundColor = .white
         
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
+        
+        collectionView.showsVerticalScrollIndicator = false
     }
     
     

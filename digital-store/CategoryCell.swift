@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryCell: UICollectionViewCell {
+class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let appsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,7 +28,10 @@ class CategoryCell: UICollectionViewCell {
         backgroundColor = .black
         addSubview(appsCollectionView)
         
-        appsCollectionView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        appsCollectionView.dataSource = self
+        appsCollectionView.delegate = self
+        
+        appsCollectionView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 8, right: rightAnchor, rightPad: 8, height: 0, width: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

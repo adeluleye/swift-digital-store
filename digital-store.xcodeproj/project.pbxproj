@@ -65,10 +65,10 @@
 				E95807F2216D6A1B00139E1D /* FeaturedAppsController.swift */,
 				E9580802216D70A900139E1D /* CategoryCell.swift */,
 				E9580806216E3EC900139E1D /* AppCell.swift */,
+				E9580808216E5BD400139E1D /* Models.swift */,
 				E95807F7216D6A1C00139E1D /* Assets.xcassets */,
 				E95807F9216D6A1C00139E1D /* LaunchScreen.storyboard */,
 				E95807FC216D6A1C00139E1D /* Info.plist */,
-				E9580808216E5BD400139E1D /* Models.swift */,
 			);
 			path = "digital-store";
 			sourceTree = "<group>";

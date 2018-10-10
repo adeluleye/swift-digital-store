@@ -10,6 +10,16 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var appCategory: AppCategory? {
+        didSet {
+            
+            if let name = appCategory?.name {
+                nameLabel.text = name
+            }
+        }
+    }
+    
+    
     private let cellId = "appCellId"
     
     let nameLabel: UILabel = {

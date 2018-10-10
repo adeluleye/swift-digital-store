@@ -21,9 +21,16 @@ class AppCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.text = "Disney Build It: Frozen"
         label.numberOfLines = 2
+        return label
+    }()
+    
+    let categoryLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.text = "Entertainment"
         return label
     }()
     
@@ -35,9 +42,11 @@ class AppCell: UICollectionViewCell {
     func setupViews() {
         addSubview(imageView)
         addSubview(nameLabel)
+        addSubview(categoryLabel)
         
         imageView.setAnchor(width: frame.width, height: frame.width)
         nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 40, width: frame.width)
+        categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: nameLabel.leftAnchor, leftPad: 0, right: nameLabel.rightAnchor, rightPad: 0, height: 20, width: frame.width)
         
         
     }

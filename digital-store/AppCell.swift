@@ -8,30 +8,13 @@
 
 import UIKit
 
-class AppCell: UICollectionViewCell {
+class AppCell: BaseCell {
     
     var app: App? {
         didSet {
             
             if let name = app?.name {
                 nameLabel.text = name
-                
-//                let rect = NSString(string: name).boundingRect(with: CGSize(width: frame.width, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
-//
-//                if rect.height > 20 {
-//
-//                    nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 40, width: frame.width)
-//                    nameLabel.sizeToFit()
-//
-//                    categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
-//                    priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
-//                } else {
-//                    nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
-//                    nameLabel.sizeToFit()
-//
-//                    categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
-//                    priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
-//                }
                 
             }
             
@@ -83,12 +66,11 @@ class AppCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
     
-    func setupViews() {
+    override func setupViews() {
+        
+        super.setupViews()
+        
         addSubview(imageView)
         addSubview(nameLabel)
         addSubview(categoryLabel)
@@ -99,11 +81,6 @@ class AppCell: UICollectionViewCell {
         categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 0, width: frame.width)
         priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 0, width: frame.width)
         
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

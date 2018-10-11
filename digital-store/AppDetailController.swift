@@ -69,13 +69,23 @@ class AppDetailHeader: BaseCell {
         return sc
     }()
     
+    let nameLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.text = "TEST"
+        return label
+    }()
+    
     override func setupViews() {
         super.setupViews()
         
         addSubview(imageView)
         addSubview(segmentedControl)
+        addSubview(nameLabel)
         
         imageView.setAnchor(top: topAnchor, topPad: 14, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: nil, rightPad: 0, height: 100, width: 100)
+        
+        nameLabel.setAnchor(top: imageView.topAnchor, topPad: 0, bottom: nil, bottomPad: 0, left: imageView.rightAnchor, leftPad: 8, right: nil, rightPad: 0, height: 0, width: 0)
         
         segmentedControl.setAnchor(top: imageView.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 40, right: rightAnchor, rightPad: 40, height: 34, width: 0)
     }

@@ -8,10 +8,11 @@
 
 import UIKit
 
-class AppDetailController: UIViewController {
+class AppDetailController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        
+        collectionView.backgroundColor = .red
     }
 }

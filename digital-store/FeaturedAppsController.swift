@@ -10,7 +10,8 @@ import UIKit
 
 class FeaturedAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "categoryCellId"
+    private let cellId = "categoryCellId"
+    private let largeCellId = "largeCellId"
     
     var appCategories: [AppCategory]?
     
@@ -29,6 +30,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         collectionView.backgroundColor = .white
         
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(LargeCategoryCell.self, forCellWithReuseIdentifier: largeCellId)
         
         collectionView.showsVerticalScrollIndicator = false
     }
@@ -43,6 +45,15 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        if indexPath.item == 2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeCellId, for: indexPath) as! LargeCategoryCell
+            
+            cell.appCategory = appCategories?[indexPath.item]
+            
+            return cell
+            
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
         cell.appCategory = appCategories?[indexPath.item]
         return cell
@@ -50,7 +61,43 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        if indexPath.item == 2 {
+            return CGSize(width: view.frame.width, height: 160)
+        }
+        
         return CGSize(width: view.frame.width, height: 230)
     }
 
+}
+
+class LargeCategoryCell: CategoryCell {
+    
+    private let largeAppCellId = "largeAppCellId"
+    
+    override func setupViews() {
+        super.setupViews()
+        appsCollectionView.register(LargeAppCell.self, forCellWithReuseIdentifier: largeAppCellId)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 200, height: frame.height - 30)
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellId, for: indexPath) as! LargeAppCell
+        
+        cell.app = appCategory?.apps?[indexPath.item]
+        return cell
+    }
+    
+    private class LargeAppCell: AppCell {
+        override func setupViews() {
+            addSubview(imageView)
+            imageView.setAnchor(top: topAnchor, topPad: 2, bottom: bottomAnchor, bottomPad: 14, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        }
+    }
+    
 }

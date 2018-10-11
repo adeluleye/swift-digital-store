@@ -24,7 +24,6 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         
         navigationItem.title = "Featured Apps"
         
-        // appCategories = AppCategory.sampleAppCategories()
         AppCategory.fetchFeaturedApps { (featuredApps) in
             
             self.featuredApps = featuredApps
@@ -44,6 +43,13 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         collectionView.showsVerticalScrollIndicator = false
     }
     
+    func showAppDetailForApp(app: App) {
+        
+        let appDetailController = UIViewController()
+        navigationController?.pushViewController(appDetailController, animated: true)
+        
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -59,12 +65,17 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
             
             cell.appCategory = appCategories?[indexPath.item]
             
+            cell.featuredAppsController = self
+            
             return cell
             
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
         cell.appCategory = appCategories?[indexPath.item]
+        
+        cell.featuredAppsController = self
+        
         return cell
     }
     

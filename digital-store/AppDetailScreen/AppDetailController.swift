@@ -54,6 +54,7 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     
     private let headerId = "headerId"
     private let cellId = "cellId"
+    private let descriptionCellId = "descriptionCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +65,16 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.register(AppDetailHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         collectionView.register(ScreenshotsCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppDetailDescriptionCell.self, forCellWithReuseIdentifier: descriptionCellId)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descriptionCellId, for: indexPath) as! AppDetailDescriptionCell
+            
+            return cell
+        }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ScreenshotsCell
         
@@ -76,7 +84,7 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -97,4 +105,29 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         
         return CGSize(width: view.frame.width, height: 170)
     }
+}
+
+class AppDetailDescriptionCell: BaseCell {
+    
+    let descriptionTextView: UITextView = {
+        let textView = UITextView()
+        let attributedText = NSMutableAttributedString(string: "Description", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black])
+        attributedText.append(NSAttributedString(string: "\n\nDescription text bla bla", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
+        
+        textView.attributedText = attributedText
+        textView.textAlignment = .left
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        
+        return textView
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        
+        addSubview(descriptionTextView)
+        
+        descriptionTextView.setAnchor(top: topAnchor, topPad: 0, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+    }
+    
 }

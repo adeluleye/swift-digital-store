@@ -87,8 +87,18 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     
     private func descriptionAttributedText() -> NSAttributedString {
         
-        let attributedText = NSMutableAttributedString(string: "Description", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n\nDescription text bla bla", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
+        let attributedText = NSMutableAttributedString(string: "Description\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.black])
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        
+        let range = NSMakeRange(0, attributedText.string.count)
+        attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: range)
+        
+        if let desc = app?.desc {
+            
+            attributedText.append(NSAttributedString(string: desc, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
+        }
         
         return attributedText
         

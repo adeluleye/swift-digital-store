@@ -28,6 +28,12 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
         return cv
     }()
     
+    let dividerLineView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
+        return view
+    }()
+    
     override func setupViews() {
         super.setupViews()
         
@@ -37,8 +43,11 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
         collectionView.register(ScreenshotImageCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)
+        addSubview(dividerLineView)
         
         collectionView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        
+        dividerLineView.setAnchor(top: nil, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0.5, width: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

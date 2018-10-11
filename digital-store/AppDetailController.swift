@@ -51,6 +51,8 @@ class AppDetailHeader: BaseCell {
                 
                 imageView.image = UIImage(named: imageName)
             }
+            
+            nameLabel.text = app?.name
         }
     }
     

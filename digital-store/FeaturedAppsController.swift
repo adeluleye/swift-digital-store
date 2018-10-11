@@ -70,6 +70,13 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         
         return CGSize(width: view.frame.width, height: 230)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! Header
+        return header
+        
+    }
 
 }
 
@@ -103,7 +110,7 @@ class LargeCategoryCell: CategoryCell {
     private class LargeAppCell: AppCell {
         override func setupViews() {
             addSubview(imageView)
-            imageView.setAnchor(top: topAnchor, topPad: 2, bottom: bottomAnchor, bottomPad: 14, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+            imageView.setAnchor(top: topAnchor, topPad: 2, bottom: bottomAnchor, bottomPad: 10, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
         }
     }
     

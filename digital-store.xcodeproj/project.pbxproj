@@ -17,6 +17,7 @@
 		E9580809216E5BD400139E1D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9580808216E5BD400139E1D /* Models.swift */; };
 		E958080B216F84BB00139E1D /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958080A216F84BB00139E1D /* AppDetailController.swift */; };
 		E958080D216FC08200139E1D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958080C216FC08200139E1D /* UIColor+Extension.swift */; };
+		E958080F216FCECF00139E1D /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958080E216FCECF00139E1D /* ScreenshotsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E9580808216E5BD400139E1D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E958080A216F84BB00139E1D /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		E958080C216FC08200139E1D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E958080E216FCECF00139E1D /* ScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +69,11 @@
 				E958080C216FC08200139E1D /* UIColor+Extension.swift */,
 				E9580804216D720200139E1D /* UIView+Extension.swift */,
 				E95807F0216D6A1B00139E1D /* AppDelegate.swift */,
-				E958080A216F84BB00139E1D /* AppDetailController.swift */,
 				E95807F2216D6A1B00139E1D /* FeaturedAppsController.swift */,
 				E9580802216D70A900139E1D /* CategoryCell.swift */,
 				E9580806216E3EC900139E1D /* AppCell.swift */,
+				E958080A216F84BB00139E1D /* AppDetailController.swift */,
+				E958080E216FCECF00139E1D /* ScreenshotsCell.swift */,
 				E9580808216E5BD400139E1D /* Models.swift */,
 				E95807F7216D6A1C00139E1D /* Assets.xcassets */,
 				E95807F9216D6A1C00139E1D /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				E958080B216F84BB00139E1D /* AppDetailController.swift in Sources */,
 				E9580807216E3EC900139E1D /* AppCell.swift in Sources */,
+				E958080F216FCECF00139E1D /* ScreenshotsCell.swift in Sources */,
 				E95807F3216D6A1B00139E1D /* FeaturedAppsController.swift in Sources */,
 				E95807F1216D6A1B00139E1D /* AppDelegate.swift in Sources */,
 				E9580809216E5BD400139E1D /* Models.swift in Sources */,

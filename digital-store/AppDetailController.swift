@@ -12,7 +12,7 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     
     var app: App? {
         didSet {
-            navigationItem.title = app?.name
+            // navigationItem.title = app?.name
         }
     }
     
@@ -92,6 +92,12 @@ class AppDetailHeader: BaseCell {
         return button
     }()
     
+    let dividerLineView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
+        return view
+    }()
+    
     
     
     override func setupViews() {
@@ -101,6 +107,7 @@ class AppDetailHeader: BaseCell {
         addSubview(segmentedControl)
         addSubview(nameLabel)
         addSubview(buyButton)
+        addSubview(dividerLineView)
         
         imageView.setAnchor(top: topAnchor, topPad: 14, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: nil, rightPad: 0, height: 100, width: 100)
         
@@ -109,6 +116,8 @@ class AppDetailHeader: BaseCell {
         buyButton.setAnchor(top: nil, topPad: 0, bottom: imageView.bottomAnchor, bottomPad: 0, left: nil, leftPad: 0, right: rightAnchor, rightPad: 14, height: 0, width: 60)
         
         segmentedControl.setAnchor(top: imageView.bottomAnchor, topPad: 14, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 40, right: rightAnchor, rightPad: 40, height: 34, width: 0)
+        
+        dividerLineView.setAnchor(top: nil, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0.5, width: 0)
     }
     
 }

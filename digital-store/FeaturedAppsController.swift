@@ -22,6 +22,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Featured Apps"
+        
         // appCategories = AppCategory.sampleAppCategories()
         AppCategory.fetchFeaturedApps { (featuredApps) in
             
@@ -77,7 +79,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: view.frame.width, height: 150)
+        return CGSize(width: view.frame.width, height: 120)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -113,7 +115,7 @@ class Header: CategoryCell {
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 200, height: frame.height - 40)
+        return CGSize(width: (frame.width / 2) + 50, height: frame.height)
         
     }
     
@@ -128,7 +130,10 @@ class Header: CategoryCell {
     private class BannerCell: AppCell {
         override func setupViews() {
             addSubview(imageView)
-            imageView.setAnchor(top: topAnchor, topPad: 2, bottom: bottomAnchor, bottomPad: 10, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+            imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+            imageView.layer.borderWidth = 0.5
+            imageView.layer.cornerRadius = 0
+            imageView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
         }
     }
     

@@ -21,6 +21,7 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = .white
         
         collectionView.register(AppDetailHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
@@ -29,6 +30,8 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppDetailHeader
+        
+        header.app = app
         
         return header
     }
@@ -42,9 +45,19 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
 
 class AppDetailHeader: BaseCell {
     
+    var app: App? {
+        didSet {
+            if let imageName = app?.imageName {
+                
+                imageView.image = UIImage(named: imageName)
+            }
+        }
+    }
+    
     let imageView: UIImageView = {
-        let image = UIImage(named: "")
-        let imageView = UIImageView(image: image)
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -52,10 +65,10 @@ class AppDetailHeader: BaseCell {
     override func setupViews() {
         super.setupViews()
         
-        backgroundColor = .blue
+        // backgroundColor = .blue
         addSubview(imageView)
         
-        imageView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        imageView.setAnchor(top: topAnchor, topPad: 14, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: nil, rightPad: 0, height: 100, width: 100)
     }
     
 }

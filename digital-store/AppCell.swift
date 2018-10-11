@@ -53,7 +53,7 @@ class AppCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let image = UIImage(named: "frozen")
         let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
         return imageView

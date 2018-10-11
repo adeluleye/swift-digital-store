@@ -8,11 +8,67 @@
 
 import UIKit
 
+@objcMembers
 class AppCategory: NSObject {
     
     var name: String?
     
     var apps: [App]?
+    
+    var type: String?
+    
+    override func setValue(_ value: Any?, forKey key: String) {
+        if key == "apps" {
+            
+            apps = [App]()
+            for dict in value as! [[String: AnyObject]] {
+                let app = App()
+                app.setValuesForKeys(dict)
+                apps?.append(app)
+            }
+            
+        } else {
+            super.setValue(value, forKey: key)
+        }
+    }
+    
+    
+    static func fetchFeaturedApps(completionHandler: @escaping ([AppCategory]) -> ()) {
+        
+        let urlString = "https://api.letsbuildthatapp.com/appstore/featured"
+        
+        URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, error) in
+            
+            if error != nil {
+                print(error ?? "Error occured!")
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
+                
+                var appCategories = [AppCategory]()
+                
+                
+                for dict in json["categories"] as! [[String: AnyObject]] {
+                    
+                    let appCategory = AppCategory()
+                    appCategory.setValuesForKeys(dict)
+                    appCategories.append(appCategory)
+                }
+                
+                DispatchQueue.main.async( execute: { () -> Void in
+                    completionHandler(appCategories)
+                })
+                
+                
+            } catch let err {
+                print(err)
+            }
+            
+            
+        }.resume()
+    }
     
     static func sampleAppCategories() -> [AppCategory] {
         
@@ -55,6 +111,7 @@ class AppCategory: NSObject {
     
 }
 
+@objcMembers
 class App: NSObject {
     
     var id: NSNumber?

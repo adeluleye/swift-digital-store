@@ -13,14 +13,22 @@ class AppCell: UICollectionViewCell {
     var app: App? {
         didSet {
             
-            guard let unwrappedImage = app?.imageName else { return }
-            guard let price = app?.price else { return }
-            guard let name = app?.name else { return }
+            if let name = app?.name {
+                nameLabel.text = name
+            }
             
-            nameLabel.text = name
             categoryLabel.text = app?.category
-            priceLabel.text = "$\(price)"
-            imageView.image = UIImage(named: unwrappedImage)
+            
+            if let price = app?.price {
+                priceLabel.text = "$\(price)"
+            } else {
+                priceLabel.text = ""
+            }
+            
+            if let imageName = app?.imageName {
+                imageView.image = UIImage(named: imageName)
+            }
+            
         }
     }
     

@@ -62,13 +62,22 @@ class AppDetailHeader: BaseCell {
         return imageView
     }()
     
+    let segmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Details", "Reviews", "Related"])
+        sc.tintColor = .darkGray
+        sc.selectedSegmentIndex = 0
+        return sc
+    }()
+    
     override func setupViews() {
         super.setupViews()
         
-        // backgroundColor = .blue
         addSubview(imageView)
+        addSubview(segmentedControl)
         
         imageView.setAnchor(top: topAnchor, topPad: 14, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: nil, rightPad: 0, height: 100, width: 100)
+        
+        segmentedControl.setAnchor(top: imageView.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 40, right: rightAnchor, rightPad: 40, height: 34, width: 0)
     }
     
 }

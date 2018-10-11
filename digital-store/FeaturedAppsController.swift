@@ -12,6 +12,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     private let cellId = "categoryCellId"
     private let largeCellId = "largeCellId"
+    private let headerId = "headerId"
     
     var appCategories: [AppCategory]?
     
@@ -31,6 +32,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(LargeCategoryCell.self, forCellWithReuseIdentifier: largeCellId)
+        
+        collectionView.register(Header.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         collectionView.showsVerticalScrollIndicator = false
     }
@@ -68,6 +71,10 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         return CGSize(width: view.frame.width, height: 230)
     }
 
+}
+
+class Header: CategoryCell {
+    
 }
 
 class LargeCategoryCell: CategoryCell {

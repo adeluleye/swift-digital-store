@@ -48,6 +48,11 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
         
         return CGSize(width: (frame.width / 2) + 50, height: frame.height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+    }
 }
 
 class ScreenshotImageCell: BaseCell {

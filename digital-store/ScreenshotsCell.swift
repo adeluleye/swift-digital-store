@@ -17,7 +17,8 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
         layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .red
+        cv.backgroundColor = .clear
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
     
@@ -57,10 +58,20 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
 
 class ScreenshotImageCell: BaseCell {
     
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "frozen_screenshot1")
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     override func setupViews() {
         super.setupViews()
         
-        backgroundColor = .yellow
+        addSubview(imageView)
+        imageView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        
+        // backgroundColor = .yellow
     }
     
 }

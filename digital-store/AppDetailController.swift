@@ -10,6 +10,12 @@ import UIKit
 
 class AppDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var app: App? {
+        didSet {
+            navigationItem.title = app?.name
+        }
+    }
+    
     private let headerId = "headerId"
     
     override func viewDidLoad() {
@@ -29,7 +35,7 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: view.frame.width, height: 120)
+        return CGSize(width: view.frame.width, height: 170)
     }
 }
 
@@ -47,7 +53,9 @@ class AppDetailHeader: BaseCell {
         super.setupViews()
         
         backgroundColor = .blue
-        //addSubview(imageView)
+        addSubview(imageView)
+        
+        imageView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
     }
     
 }

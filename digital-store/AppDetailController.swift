@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppDetailController: UICollectionViewController {
+class AppDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let headerId = "headerId"
     
@@ -25,6 +25,11 @@ class AppDetailController: UICollectionViewController {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppDetailHeader
         
         return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: view.frame.width, height: 120)
     }
 }
 

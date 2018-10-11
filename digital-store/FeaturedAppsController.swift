@@ -14,6 +14,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     private let largeCellId = "largeCellId"
     private let headerId = "headerId"
     
+    var featuredApps: FeaturedApps?
+    
     var appCategories: [AppCategory]?
     
 
@@ -21,9 +23,11 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         super.viewDidLoad()
         
         // appCategories = AppCategory.sampleAppCategories()
-        AppCategory.fetchFeaturedApps { (appCategories) in
+        AppCategory.fetchFeaturedApps { (featuredApps) in
             
-            self.appCategories = appCategories
+            self.featuredApps = featuredApps
+            
+            self.appCategories = featuredApps.appCategories
             
             self.collectionView?.reloadData()
         }
@@ -80,7 +84,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! Header
         
-        header.appCategory = appCategories?.first
+        header.appCategory = featuredApps?.bannerCategory
         
         return header
         

@@ -79,6 +79,9 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! Header
+        
+        header.appCategory = appCategories?.first
+        
         return header
         
     }
@@ -86,6 +89,44 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
 }
 
 class Header: CategoryCell {
+    
+    let bannerCellId = "bannerCellId"
+    
+    override func setupViews() {
+        // super.setupViews()
+        
+        appsCollectionView.delegate = self
+        appsCollectionView.dataSource = self
+        
+        addSubview(appsCollectionView)
+        appsCollectionView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        appsCollectionView.register(BannerCell.self, forCellWithReuseIdentifier: bannerCellId)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 200, height: frame.height - 40)
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellId, for: indexPath) as! BannerCell
+        
+        cell.app = appCategory?.apps?[indexPath.item]
+        return cell
+    }
+    
+    private class BannerCell: AppCell {
+        override func setupViews() {
+            addSubview(imageView)
+            imageView.setAnchor(top: topAnchor, topPad: 2, bottom: bottomAnchor, bottomPad: 10, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        }
+    }
     
 }
 
@@ -100,7 +141,7 @@ class LargeCategoryCell: CategoryCell {
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 200, height: frame.height - 30)
+        return CGSize(width: 200, height: frame.height - 40)
         
     }
     

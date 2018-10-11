@@ -73,6 +73,8 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descriptionCellId, for: indexPath) as! AppDetailDescriptionCell
             
+            cell.descriptionTextView.attributedText = descriptionAttributedText()
+            
             return cell
         }
         
@@ -81,6 +83,15 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         cell.app = app
         
         return cell
+    }
+    
+    private func descriptionAttributedText() -> NSAttributedString {
+        
+        let attributedText = NSMutableAttributedString(string: "Description", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black])
+        attributedText.append(NSAttributedString(string: "\n\nDescription text bla bla", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
+        
+        return attributedText
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -111,10 +122,7 @@ class AppDetailDescriptionCell: BaseCell {
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Description", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black])
-        attributedText.append(NSAttributedString(string: "\n\nDescription text bla bla", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
         
-        textView.attributedText = attributedText
         textView.textAlignment = .left
         textView.isEditable = false
         textView.isScrollEnabled = false

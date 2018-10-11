@@ -81,24 +81,3 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
 }
-
-class ScreenshotImageCell: BaseCell {
-    
-    let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
-    override func setupViews() {
-        super.setupViews()
-        
-        layer.masksToBounds = true
-        
-        addSubview(imageView)
-        imageView.setAnchor(top: topAnchor, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 0, right: rightAnchor, rightPad: 0, height: 0, width: 0)
-        
-        // backgroundColor = .yellow
-    }
-    
-}

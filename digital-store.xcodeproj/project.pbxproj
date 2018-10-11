@@ -20,6 +20,7 @@
 		E958080F216FCECF00139E1D /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958080E216FCECF00139E1D /* ScreenshotsCell.swift */; };
 		E9580811217003D900139E1D /* AppDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9580810217003D900139E1D /* AppDetailHeader.swift */; };
 		E95808132170047000139E1D /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95808122170047000139E1D /* BaseCell.swift */; };
+		E95808172170054300139E1D /* ScreenshotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95808162170054300139E1D /* ScreenshotImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E958080E216FCECF00139E1D /* ScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
 		E9580810217003D900139E1D /* AppDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailHeader.swift; sourceTree = "<group>"; };
 		E95808122170047000139E1D /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		E95808162170054300139E1D /* ScreenshotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				E958080A216F84BB00139E1D /* AppDetailController.swift */,
 				E9580810217003D900139E1D /* AppDetailHeader.swift */,
 				E958080E216FCECF00139E1D /* ScreenshotsCell.swift */,
+				E95808162170054300139E1D /* ScreenshotImageCell.swift */,
 				E95808122170047000139E1D /* BaseCell.swift */,
 				E9580808216E5BD400139E1D /* Models.swift */,
 				E95807F7216D6A1C00139E1D /* Assets.xcassets */,
@@ -163,6 +166,7 @@
 				E958080F216FCECF00139E1D /* ScreenshotsCell.swift in Sources */,
 				E95807F3216D6A1B00139E1D /* FeaturedAppsController.swift in Sources */,
 				E95807F1216D6A1B00139E1D /* AppDelegate.swift in Sources */,
+				E95808172170054300139E1D /* ScreenshotImageCell.swift in Sources */,
 				E9580809216E5BD400139E1D /* Models.swift in Sources */,
 				E9580805216D720200139E1D /* UIView+Extension.swift in Sources */,
 				E95808132170047000139E1D /* BaseCell.swift in Sources */,

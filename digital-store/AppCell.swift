@@ -15,6 +15,24 @@ class AppCell: UICollectionViewCell {
             
             if let name = app?.name {
                 nameLabel.text = name
+                
+//                let rect = NSString(string: name).boundingRect(with: CGSize(width: frame.width, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
+//
+//                if rect.height > 20 {
+//
+//                    nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 40, width: frame.width)
+//                    nameLabel.sizeToFit()
+//
+//                    categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
+//                    priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
+//                } else {
+//                    nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
+//                    nameLabel.sizeToFit()
+//
+//                    categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
+//                    priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
+//                }
+                
             }
             
             categoryLabel.text = app?.category
@@ -77,9 +95,9 @@ class AppCell: UICollectionViewCell {
         addSubview(priceLabel)
         
         imageView.setAnchor(width: frame.width, height: frame.width)
-        nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 40, width: frame.width)
-        categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
-        priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 20, width: frame.width)
+        nameLabel.setAnchor(top: imageView.bottomAnchor, topPad: 2, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 0, width: frame.width)
+        categoryLabel.setAnchor(top: nameLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 0, width: frame.width)
+        priceLabel.setAnchor(top: categoryLabel.bottomAnchor, topPad: 1, bottom: nil, bottomPad: 0, left: imageView.leftAnchor, leftPad: 0, right: imageView.rightAnchor, rightPad: 0, height: 0, width: frame.width)
         
         
     }

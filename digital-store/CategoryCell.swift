@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CategoryCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var featuredAppsController: FeaturedAppsController?
     
@@ -50,14 +50,12 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+    override func setupViews() {
+        
+        super.setupViews()
         
         appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: cellId)
-    }
-    
-    func setupViews() {
+        
         backgroundColor = .clear
         addSubview(appsCollectionView)
         addSubview(dividerLineView)
@@ -104,10 +102,6 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         if let app = appCategory?.apps?[indexPath.item] {
             featuredAppsController?.showAppDetailForApp(app: app)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

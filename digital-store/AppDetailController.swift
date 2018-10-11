@@ -53,6 +53,10 @@ class AppDetailHeader: BaseCell {
             }
             
             nameLabel.text = app?.name
+            
+            if let price = app?.price?.stringValue {
+                buyButton.setTitle("$\(price)", for: .normal)
+            }
         }
     }
     

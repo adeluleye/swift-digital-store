@@ -10,9 +10,56 @@ import UIKit
 
 class AppDetailController: UICollectionViewController {
     
+    private let headerId = "headerId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .white
+        
+        collectionView.register(AppDetailHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppDetailHeader
+        
+        return header
+    }
+}
+
+
+class AppDetailHeader: BaseCell {
+    
+    let imageView: UIImageView = {
+        let image = UIImage(named: "")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        
+        backgroundColor = .blue
+        //addSubview(imageView)
+    }
+    
+}
+
+class BaseCell: UICollectionViewCell {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        
+    }
+    
 }

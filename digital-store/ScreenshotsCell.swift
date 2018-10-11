@@ -10,6 +10,12 @@ import UIKit
 
 class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var app: App? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     private let cellId = "cellId"
     
     let collectionView: UICollectionView = {
@@ -36,12 +42,23 @@ class ScreenshotsCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        
+        if let count = app?.screenshots?.count {
+            return count
+        }
+        
+        return 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ScreenshotImageCell
+        
+        if let screenshot = app?.screenshots?[indexPath.item] {
+            cell.imageView.image = UIImage(named: screenshot)
+        }
+        
         return cell
     }
     
@@ -60,7 +77,6 @@ class ScreenshotImageCell: BaseCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "frozen_screenshot1")
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

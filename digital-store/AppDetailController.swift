@@ -12,7 +12,43 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     
     var app: App? {
         didSet {
-            // navigationItem.title = app?.name
+            
+            if app?.screenshots != nil {
+                return
+            }
+            
+            if let id = app?.id {
+                let urlString = "https://api.letsbuildthatapp.com/appstore/appdetail?id=\(id)"
+                
+                URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, error) in
+                    
+                    if error != nil {
+                        print(error ?? "Error occured!")
+                        return
+                    }
+                    
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
+                        
+                        let appDetail = App()
+                        
+                        appDetail.setValuesForKeys(json)
+                        
+                        self.app = appDetail
+                        
+                        
+                        DispatchQueue.main.async( execute: { () -> Void in
+                            self.collectionView.reloadData()
+                        })
+                        
+                        
+                    } catch let err {
+                        print(err)
+                    }
+                    
+                }.resume()
+            }
+            
         }
     }
     
@@ -33,6 +69,8 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ScreenshotsCell
+        
+        cell.app = app
         
         return cell
     }

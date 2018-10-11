@@ -15,6 +15,7 @@
 		E9580805216D720200139E1D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9580804216D720200139E1D /* UIView+Extension.swift */; };
 		E9580807216E3EC900139E1D /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9580806216E3EC900139E1D /* AppCell.swift */; };
 		E9580809216E5BD400139E1D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9580808216E5BD400139E1D /* Models.swift */; };
+		E958080B216F84BB00139E1D /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958080A216F84BB00139E1D /* AppDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E9580804216D720200139E1D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E9580806216E3EC900139E1D /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
 		E9580808216E5BD400139E1D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		E958080A216F84BB00139E1D /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				E9580804216D720200139E1D /* UIView+Extension.swift */,
 				E95807F0216D6A1B00139E1D /* AppDelegate.swift */,
+				E958080A216F84BB00139E1D /* AppDetailController.swift */,
 				E95807F2216D6A1B00139E1D /* FeaturedAppsController.swift */,
 				E9580802216D70A900139E1D /* CategoryCell.swift */,
 				E9580806216E3EC900139E1D /* AppCell.swift */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E958080B216F84BB00139E1D /* AppDetailController.swift in Sources */,
 				E9580807216E3EC900139E1D /* AppCell.swift in Sources */,
 				E95807F3216D6A1B00139E1D /* FeaturedAppsController.swift in Sources */,
 				E95807F1216D6A1B00139E1D /* AppDelegate.swift in Sources */,

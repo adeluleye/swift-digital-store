@@ -119,6 +119,16 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        if indexPath.item == 1 {
+            
+            let dummySize = CGSize(width: view.frame.width - 8 - 8, height: 1000)
+            let options = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
+            
+            let rect = descriptionAttributedText().boundingRect(with: dummySize, options: options, context: nil)
+            
+            return CGSize(width: view.frame.width, height: rect.height + 30)
+        }
+        
         return CGSize(width: view.frame.width, height: 170)
     }
     
@@ -152,7 +162,7 @@ class AppDetailDescriptionCell: BaseCell {
         addSubview(descriptionTextView)
         addSubview(dividerLineView)
         
-        descriptionTextView.setAnchor(top: topAnchor, topPad: 0, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 14, right: rightAnchor, rightPad: 0, height: 0, width: 0)
+        descriptionTextView.setAnchor(top: topAnchor, topPad: 0, bottom: nil, bottomPad: 0, left: leftAnchor, leftPad: 8, right: rightAnchor, rightPad: 8, height: 0, width: 0)
         
         dividerLineView.setAnchor(top: nil, topPad: 0, bottom: bottomAnchor, bottomPad: 0, left: leftAnchor, leftPad: 14, right: rightAnchor, rightPad: 0, height: 0.5, width: 0)
     }

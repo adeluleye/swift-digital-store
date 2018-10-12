@@ -13,29 +13,31 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     var app: App? {
         didSet {
             
-            if app?.screenshots != nil {
+            if app?.Screenshots != nil {
                 return
             }
             
-            if let id = app?.id {
+            if let id = app?.Id {
                 let urlString = "https://api.letsbuildthatapp.com/appstore/appdetail?id=\(id)"
                 
-                URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, error) in
+                guard let url = URL(string: urlString) else { return }
+                
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
                     
-                    if error != nil {
-                        print(error ?? "Error occured!")
+                    guard let data = data else { return }
+                    
+                    if let error = error {
+                        print(error)
                         return
                     }
                     
                     do {
-                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
                         
-                        let appDetail = App()
                         
-                        appDetail.setValuesForKeys(json)
+                        let decoder = JSONDecoder()
+                        let appDetail = try decoder.decode(App.self, from: data)
                         
                         self.app = appDetail
-                        
                         
                         DispatchQueue.main.async( execute: { () -> Void in
                             self.collectionView.reloadData()
@@ -46,7 +48,9 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
                         print(err)
                     }
                     
-                }.resume()
+                    
+                    }.resume()
+                
             }
             
         }
@@ -95,7 +99,7 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         let range = NSMakeRange(0, attributedText.string.count)
         attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: range)
         
-        if let desc = app?.desc {
+        if let desc = app?.description {
             
             attributedText.append(NSAttributedString(string: desc, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
         }

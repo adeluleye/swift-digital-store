@@ -28,7 +28,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
             
             self.featuredApps = featuredApps
             
-            self.appCategories = featuredApps.appCategories
+            self.appCategories = featuredApps.categories
             
             self.collectionView?.reloadData()
         }

@@ -13,20 +13,20 @@ class AppCell: BaseCell {
     var app: App? {
         didSet {
             
-            if let name = app?.name {
+            if let name = app?.Name {
                 nameLabel.text = name
                 
             }
             
-            categoryLabel.text = app?.category
+            categoryLabel.text = app?.Category
             
-            if let price = app?.price {
+            if let price = app?.Price {
                 priceLabel.text = "$\(price)"
             } else {
                 priceLabel.text = ""
             }
             
-            if let imageName = app?.imageName {
+            if let imageName = app?.ImageName {
                 imageView.image = UIImage(named: imageName)
             }
             

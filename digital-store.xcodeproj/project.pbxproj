@@ -23,6 +23,7 @@
 		E95808172170054300139E1D /* ScreenshotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95808162170054300139E1D /* ScreenshotImageCell.swift */; };
 		E9580819217007F000139E1D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9580818217007F000139E1D /* Header.swift */; };
 		E958081B217009C300139E1D /* LargeCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958081A217009C300139E1D /* LargeCategoryCell.swift */; };
+		E958082021701CA600139E1D /* AppDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958081F21701CA600139E1D /* AppDetailDescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E95808162170054300139E1D /* ScreenshotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotImageCell.swift; sourceTree = "<group>"; };
 		E9580818217007F000139E1D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		E958081A217009C300139E1D /* LargeCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryCell.swift; sourceTree = "<group>"; };
+		E958081F21701CA600139E1D /* AppDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailDescriptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				E9580810217003D900139E1D /* AppDetailHeader.swift */,
 				E958080E216FCECF00139E1D /* ScreenshotsCell.swift */,
 				E95808162170054300139E1D /* ScreenshotImageCell.swift */,
+				E958081F21701CA600139E1D /* AppDetailDescriptionCell.swift */,
 			);
 			path = AppDetailScreen;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				E95808172170054300139E1D /* ScreenshotImageCell.swift in Sources */,
 				E9580809216E5BD400139E1D /* Models.swift in Sources */,
 				E9580805216D720200139E1D /* UIView+Extension.swift in Sources */,
+				E958082021701CA600139E1D /* AppDetailDescriptionCell.swift in Sources */,
 				E95808132170047000139E1D /* BaseCell+Extension.swift in Sources */,
 				E9580803216D70A900139E1D /* CategoryCell.swift in Sources */,
 				E958080D216FC08200139E1D /* UIColor+Extension.swift in Sources */,
